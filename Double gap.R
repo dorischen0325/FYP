@@ -1,8 +1,7 @@
 library(MortalityGaps)
 Sys.setenv(LANG = "en")
 
-
-
+#Read the data from files
 DataF <- read.csv(file="UKexF.csv")
 DataM <- read.csv(file="UKexM.csv")
 
