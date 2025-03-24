@@ -1,7 +1,7 @@
 Sys.setenv(LANG = "en")
 library("StMoMo")
 library("demography")
-UKdata <- hmd.mx(country="GBR_NP", username = "swchen0325@gmail.com", password = "dm70770851Hh@")
+UKdata <- hmd.mx(country="GBR_NP", username = "your username", password = "your password")
 
 #Ages and gender for fitting
 UKfemale <- StMoMoData(UKdata, series = "female")
