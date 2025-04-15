@@ -7,7 +7,7 @@ DataM <- read.csv(file="UKexM.csv")
 
 fitModel <- DoubleGap(DF = DataF,
                 DM = DataM,
-                age = 75,
+                age = 35, #change for different age
                 country = "GBRTENW",
                 years = 1922:2020)
 
@@ -16,15 +16,28 @@ plot(preModel,
      main = "Forecast of Life Expectancy at Age 35")
 summary(fitModel)
 
-# Collection of life expectancies for female populations
-exF <- MortalityGaps.data$exF
-exF
-# Life expectancy for male populations
-exM <- MortalityGaps.data$exM
-M0 <- DoubleGap(DF = exF,
-                DM = exM,
-                age = 65,
-                country = "GBRTENW",
-                years = 1950:2013)
-P0 <- predict(M0, h = 37)
-plot(P0)
+#UK at birth
+fitModel <- DoubleGap(DF = DataF,
+                      DM = DataM,
+                      age = 0,
+                      country = "GBRTENW",
+                      years = 1947:2020)
+
+preModel<- predict(fitModel, h = 30)
+plot(preModel,
+     main = "Forecast of Life Expectancy at Age 0")
+summary(fitModel)
+
+#Japan at birth
+DataF <- read.csv(file="JapanexF.csv")
+DataM <- read.csv(file="JapanexM.csv")
+fitModel <- DoubleGap(DF = DataF,
+                      DM = DataM,
+                      age = 0,
+                      country = "JPN",
+                      years = 1947:2020)
+
+preModel<- predict(fitModel, h = 30)
+plot(preModel,
+     main = "Forecast of Life Expectancy at Age 0")
+summary(fitModel)
