@@ -5,7 +5,7 @@ Sys.setenv(LANG = "en")
 DataF <- read.csv(file="UKexF.csv")
 DataM <- read.csv(file="UKexM.csv")
 
-#fit the DGM to the data for ages 35, 55 and 75
+#Fit the DGM to the data for ages 35, 55 and 75
 fitModel <- DoubleGap(DF = DataF,
                 DM = DataM,
                 age = 35, 
@@ -39,7 +39,7 @@ plot(preModel,
      main = "Forecast of Life Expectancy at Age 75")
 summary(fitModel)
 
-#UK at birth
+#UK life expectancy plot at birth
 fitModel <- DoubleGap(DF = DataF,
                       DM = DataM,
                       age = 0,
@@ -51,7 +51,7 @@ plot(preModel,
      main = "Forecast of Life Expectancy at Age 0")
 summary(fitModel)
 
-#Japan at birth
+#Japan life expectancy plot at birth
 DataF <- read.csv(file="JapanexF.csv")
 DataM <- read.csv(file="JapanexM.csv")
 fitModel <- DoubleGap(DF = DataF,
