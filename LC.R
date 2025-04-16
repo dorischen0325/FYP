@@ -1,7 +1,8 @@
-Sys.setenv(LANG = "en")
+#Load libraries
 library("StMoMo")
 library("demography")
-#login to HMD
+
+#Login to HMD
 UKdata <- hmd.mx(country="GBR_NP", username = "your username", password = "your password") 
 
 #Ages and gender for fitting
@@ -35,7 +36,7 @@ LCforF$rates[1:5, 1:5]
 LCfor_qxtF <- 1 - exp(- LCforF$rates)
 LCfor_qxtF[, "2041"] 
 
-#loop for creating a data frame
+#Loop for creating a data frame
 dfLCF <- data.frame(x = ages.fit,
                     qx = as.numeric(LCfor_qxtF[, "2022"]))
 i <- 2
@@ -54,14 +55,14 @@ LCfor_qxtM <- 1 - exp(- LCforM$rates)
 dfLCM <- data.frame(x = ages.fit,
                     qx = as.numeric(LCfor_qxtM[, "2022"]))
 
-#loop for creating a data frame
+#Loop for creating a data frame
 i <- 2
 while (i <= 30) {
   dfLCM <- cbind(dfLCM, qx = as.numeric(LCfor_qxtM[, i]))
   i <- i + 1
 }
 
-#plot the mortality rates' graphs for ages 35, 55 and 75 for females
+#Plot the mortality rates' graphs for ages 35, 55 and 75 for females
 par(mfrow = c(1, 3))
 plot(LCfitF$years, (LCfitF$Dxt / LCfitF$Ext)["35", ],
      xlim = range(LCfitF$years, LCforF$years),
@@ -93,7 +94,7 @@ lines(LCforF$years, LCforF$rates["75", ], lty = 2, col="blue")
 legend("topright",legend = c("Fitted", "Forecast"), 
        lty = 1:2, col = c("black", "blue"))
 
-#plot the mortality rates' graphs for ages 35, 55 and 75 for males
+#Plot the mortality rates' graphs for ages 35, 55 and 75 for males
 par(mfrow = c(1, 3))
 plot(LCfitM$years, (LCfitM$Dxt / LCfitM$Ext)["35", ],
      xlim = range(LCfitM$years, LCforM$years),
