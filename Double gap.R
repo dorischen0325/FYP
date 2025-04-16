@@ -10,7 +10,6 @@ fitModel <- DoubleGap(DF = DataF,
                 age = 35, 
                 country = "GBRTENW",
                 years = 1922:2020)
-
 preModel<- predict(fitModel, h = 30) #for the next 30 years
 plot(preModel,
      main = "Forecast of Life Expectancy at Age 35")
@@ -21,7 +20,6 @@ fitModel <- DoubleGap(DF = DataF,
                 age = 55, 
                 country = "GBRTENW",
                 years = 1922:2020)
-
 preModel<- predict(fitModel, h = 30)
 plot(preModel,
      main = "Forecast of Life Expectancy at Age 55")
@@ -32,7 +30,6 @@ fitModel <- DoubleGap(DF = DataF,
                 age = 75, 
                 country = "GBRTENW",
                 years = 1922:2020)
-
 preModel<- predict(fitModel, h = 30)
 plot(preModel,
      main = "Forecast of Life Expectancy at Age 75")
@@ -44,7 +41,6 @@ fitModel <- DoubleGap(DF = DataF,
                       age = 0,
                       country = "GBRTENW",
                       years = 1947:2020)
-
 preModel<- predict(fitModel, h = 30)
 plot(preModel,
      main = "Forecast of Life Expectancy at Age 0")
@@ -58,7 +54,6 @@ fitModel <- DoubleGap(DF = DataF,
                       age = 0,
                       country = "JPN",
                       years = 1947:2020)
-
 preModel<- predict(fitModel, h = 30)
 plot(preModel,
      main = "Forecast of Life Expectancy at Age 0")
