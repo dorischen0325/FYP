@@ -5,15 +5,38 @@ Sys.setenv(LANG = "en")
 DataF <- read.csv(file="UKexF.csv")
 DataM <- read.csv(file="UKexM.csv")
 
+#fit the DGM to the data for ages 35, 55 and 75
 fitModel <- DoubleGap(DF = DataF,
                 DM = DataM,
-                age = 35, #change for different age
+                age = 35, 
+                country = "GBRTENW",
+                years = 1922:2020)
+
+preModel<- predict(fitModel, h = 30) #for the next 30 years
+plot(preModel,
+     main = "Forecast of Life Expectancy at Age 35")
+summary(fitModel)
+
+fitModel <- DoubleGap(DF = DataF,
+                DM = DataM,
+                age = 55, 
                 country = "GBRTENW",
                 years = 1922:2020)
 
 preModel<- predict(fitModel, h = 30)
 plot(preModel,
-     main = "Forecast of Life Expectancy at Age 35")
+     main = "Forecast of Life Expectancy at Age 55")
+summary(fitModel)
+
+fitModel <- DoubleGap(DF = DataF,
+                DM = DataM,
+                age = 75, 
+                country = "GBRTENW",
+                years = 1922:2020)
+
+preModel<- predict(fitModel, h = 30)
+plot(preModel,
+     main = "Forecast of Life Expectancy at Age 75")
 summary(fitModel)
 
 #UK at birth
