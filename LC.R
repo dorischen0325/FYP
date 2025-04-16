@@ -26,15 +26,13 @@ LCfitM <- fit(object = LC, # model
               years.fit = years.fit # years in fit
 )
 
-#Forecasting
+#Forecasting for the next 30 years
 #LC Female
 LCforF <- forecast(LCfitF, h = 30)
-plot(LCforF, only.kt = TRUE)
-LCforF$kt.f$mean
-LCforF$rates
-LCforF$rates[1:5, 1:5]
+#LCforF$rates
+#LCforF$rates[1:5, 1:5]
 LCfor_qxtF <- 1 - exp(- LCforF$rates)
-LCfor_qxtF[, "2041"] 
+#LCfor_qxtF[, "2041"] 
 
 #Loop for creating a data frame
 dfLCF <- data.frame(x = ages.fit,
